@@ -72,12 +72,13 @@ def test_response_schema():
     assert jsonschema.validate(instance=response, schema=schema) is None, "Schema validation failed."
 
 
-def test_data_type_of_field():
+def test_data_type_of_field_in_array():
     response = call_api.api("POST", "https://672d5343-67ef-4512-8404-978180e2d867.mock.pstmn.io/post?status=201",
                             payload=[{"team": "qa", "status": 201}])
     response = json.loads(response.text)
     data = pandas.json_normalize(response)
     df = pandas.DataFrame(data)
     assert df.id.dtype == "int64", "All records have integer type for id column."
+
 
 

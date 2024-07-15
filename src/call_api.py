@@ -9,7 +9,7 @@ def api(method, url, payload=None):
         if method == "GET":
             response = requests.get(url, headers=headers)
         elif method == "POST":
-            if type(payload) is list or type(payload) is tuple:
+            if type(payload) is list or type(payload) is tuple or type(payload) is dict:
                 response = requests.post(url, headers=headers, json=payload)
             else:
                 response = requests.post(url, headers=headers, data=payload)
