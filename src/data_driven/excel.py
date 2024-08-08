@@ -1,6 +1,7 @@
 import openpyxl
 import pandas
 import json
+import datetime
 
 
 class excel:
@@ -21,5 +22,20 @@ class excel:
         output = json.loads(json_data)
         return output
 
+    # def create_parquet(self, file_path):
+    #     excel_data_df = pandas.read_csv(file_path, infer_datetime_format=True)
+    #     excel_data_df["TIMESTAMP_VALUE3"] = excel_data_df["TIMESTAMP_VALUE3"] * 1000
+    #     excel_data_df["TIMESTAMP_VALUE3"] = excel_data_df["TIMESTAMP_VALUE3"].astype("datetime64[ms]")
+    #     excel_data_df["TIMESTAMP_VALUE1"] = pandas.to_datetime(excel_data_df["TIMESTAMP_VALUE1"],
+    #                                                            format="%Y-%m-%d %H:%M:%S.%f")
+    #     excel_data_df["TIMESTAMP_VALUE1"] = excel_data_df["TIMESTAMP_VALUE1"].astype("datetime64[ms]")
+    #     print(excel_data_df["TIMESTAMP_VALUE1"])
+    #     print(excel_data_df["TIMESTAMP_VALUE3"])
+    #     excel_data_df.to_parquet('date_timestamp4.parquet', times="int96")
 
+    # def create_csv(self, file_path):
+    #     df = pandas.read_parquet(file_path)
+    #     df.to_csv('filename.csv')
+    #     print(df['mdm_maturity_date'])
+    #     #print(df['as_of_date', 'call_date', 'dated_date', 'first_cpn_date', 'maturity_date', 'mdm_maturity_date'])
 

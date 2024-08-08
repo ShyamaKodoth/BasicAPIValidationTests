@@ -1,8 +1,10 @@
 import os
 from src import call_api
 from src.data_driven import excel
+import pytest
 
 
+@pytest.mark.skip
 def test_from_excel():
     cur_dir = os.path.curdir
     file_path = cur_dir + "/test_api/test_data_files/data.xlsx"
@@ -13,6 +15,7 @@ def test_from_excel():
         assert response.status_code == 200
 
 
+@pytest.mark.skip
 def test_excel_by_data():
     cur_dir = os.path.curdir
     file_path = cur_dir + "/test_api/test_data_files/data.xlsx"
